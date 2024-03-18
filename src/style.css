@@ -1,0 +1,116 @@
+/* common css */
+.btn{
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+  }
+  
+  .btn:hover{
+    background-color: #fff;
+    color: #222;
+    transition: all 0.4s;
+    border: 1px solid #222;
+  }
+  
+  .close{
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+  
+  
+  
+  /* menubar */
+  header {
+    width:100%;
+    overflow-x:hidden ;
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.4);
+    position: fixed;
+  }
+  
+  header .navbar {
+    height:80px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.4);
+    
+  
+  }
+  
+  .navbar .container {
+    display: flex;
+    width:80%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar .btn-menu{
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #222;
+    color: #eee;
+    border: none;
+    padding: 8px 10px;
+  }
+  
+  
+  .navbar .btn-menu:hover{
+    background-color: #fff;
+    color: #222;
+    transition: all 0.4s;
+    border: 1px solid #222;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #222;
+  }
+  
+  .navbar a.logo{
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  /* sidebar */
+  .sidebar{
+    position: absolute;
+    background-color: #eee;
+    height: 100vh;
+    width: 0;
+    opacity: 0;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  
+  .sidebar.active{
+    width:calc(100vw - 70vw);
+    opacity: 1;
+    transition: all 0.3s;
+  }
+  
+  .sidebar .sidebar-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+  
+  }
+  
+  @media screen and (max-width:768px){
+    .navbar a.logo{
+      font-size: 1.5rem;
+    }
+    .sidebar.active{
+      width:60vw;
+      opacity: 1;
+      transition: all 0.3s;
+    }
+  }
