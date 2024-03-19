@@ -17,9 +17,9 @@ function Menu() {
                         <i className="bi bi-list"></i>
                     </button>
 
-                    <NavLink className="logo">React-E-Shop</NavLink>
+                    <NavLink to={`/`} className="logo">React-E-Shop</NavLink>
                     
-                    <NavLink className="cart">
+                    <NavLink to={`/cart`} className="cart">
                         <i className="bi bi-cart-fill"></i>
                     </NavLink>
                 </div>
@@ -29,13 +29,24 @@ function Menu() {
         {/* sidebar menu */}
         <div className="sidebar" id='sideMenu'>
             <div className="sidebar-header">
-                <h4>React-E-Shop</h4>
+                
+                <h4 className="sidebar-title">React-E-Shop</h4>
                 <button className="btn close" onClick={closeSidebar} >
                     <i className="bi bi-x"></i>
                 </button>
             </div>
             <div className="sidebar-body">
-
+                <ul className="menulist">
+                    <li className="menu-item">
+                        <NavLink to={`/home`} className="menu-link">Home</NavLink>
+                    </li>
+                    <li className="menu-item">
+                        <NavLink to={`about`} className="menu-link">About</NavLink>
+                    </li>
+                    <li className="menu-item">
+                        <NavLink to={`contact`} className="menu-link">Contact</NavLink>
+                    </li>
+                </ul>
             </div>
         </div>
     </React.Fragment>
