@@ -3,7 +3,7 @@
 .container-main{
   position: relative;
   top: 7vw;
-  z-index: -3;
+
   /* padding: 20px; */
 }
 .btn{
@@ -25,7 +25,20 @@
   font-size: 1.2rem;
   font-weight: 800;
 }
-
+.container {
+ width: 100%;
+ overflow-x: hidden;
+}
+.row{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+}
+.col{
+  width: 100%;
+  flex: 1;
+}
 
 /* menubar */
 header {
@@ -33,6 +46,7 @@ header {
   overflow-x: hidden;
   box-shadow: 2px 3px 4px rgba(0,0,0,0.4);
   position: fixed;
+  top: 0;
 }
 header .navbar{
   height: 80px;
@@ -79,9 +93,9 @@ header .navbar{
 /* sidebar */
 
 .sidebar{
-  position: absolute;
+  position: fixed;
   background-color: #eee;
-  height: 100vh;
+  height: 100%;
   width: 0;
   opacity: 0;
   display: flex;
@@ -90,6 +104,7 @@ header .navbar{
   justify-content: flex-start;
   transition: all 0.3s;
   box-shadow: 3px 3px 2px rgba(0,0,0,0.2);
+  z-index: 999;
 }
 .sidebar.active{
   width: calc(100vw - 70vw);
@@ -141,41 +156,91 @@ header .navbar{
   color: #222;
 }
 
+
+
 /* tabmenu */
-.tabmenu{
+.tabmenu {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   list-style: none;
+  gap: 10px;
 }
 
-@media  screen and (max-width:768px) {
-  .container-main{
-    position: relative;
-    top: 10vw;
-    z-index: -3;
-  }
-  .navbar a.logo {
-      font-size: 1.5rem;
-  }
-  .sidebar.active {
-      width: 60vw;
-      opacity: 1;
-      transition: all 0.3s;
-  } 
+.tabmenu .tab-item{
+  background-color: #222;
+  float: 1;
+  padding: 12px 100px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #222;
 }
-@media  (max-width:768px) and (max-width:996px) {
-  .container-main{
-    position: relative;
-    top: 10vw;
-    z-index: -3;
-  }
-  .navbar a.logo {
-      font-size: 1.5rem;
-  }
-  .sidebar.active {
-      width: 40vw;
-      opacity: 1;
-      transition: all 0.3s;
-  } 
+
+.tab-item .tab-link {
+  color: #eee;
+  text-transform: uppercase;
+  text-decoration: none;
+
+}
+.tab-item:hover{
+  background-color: #fff;
+  border: 1px solid #222;
+  transition: all 0.3s ease-in-out;
+
+}
+.tab-item:hover .tab-link {
+  color: #222;
+}
+
+/* Products */
+.product-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  grid-gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.product-container .card {
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0px 8px 24px rgba(101, 100, 100, 0.217);
+  position: relative;
+}
+.card .card-front{
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+
+
+.product-container .card .card-front .card-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+ 
+}
+
+.card-content {
+  text-align: center;
+
+}
+
+.card-back{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;background-color: #222;
+  opacity: 0;
+}
+
+.card:hover .card-back {
+  opacity: 1;
+  height: 15%;
+  transition: all 0.3s ease-in ;
+  text-align: center;
 }

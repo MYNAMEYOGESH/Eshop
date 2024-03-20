@@ -24,6 +24,7 @@ function Home() {
   },[])
 
   return (
+    <React.Fragment>
    <div className="container">
     <div className="row">
       <div className="col">
@@ -47,8 +48,10 @@ function Home() {
         </ul>
       </div>
     </div>
-    <Outlet/>
+
    </div>
+   <Outlet/>
+   </React.Fragment>
   )
 }
 
