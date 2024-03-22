@@ -18,7 +18,7 @@ function Products(props) {
       </div>
    </NavLink>
     <div className="card-back">
-        <button className="btn"> Add to cart <br />
+        <button className="btn"> Add to cart 
             <i className="bi bi-cart"></i>
         </button>
     </div>

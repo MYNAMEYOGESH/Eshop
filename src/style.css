@@ -234,7 +234,9 @@ header .navbar{
   bottom: 0;
   left: 0;
   height: 0%;
-  width: 100%;background-color: #222;
+  width: 100%;
+  background-color: #222;
+  color: #eee;
   opacity: 0;
 }
 
@@ -243,6 +245,8 @@ header .navbar{
   height: 15%;
   transition: all 0.3s ease-in ;
   text-align: center;
+  color: #e5f04c;
+  background-color: #1c1717d4;
 }
 
 /* single prodect info */
