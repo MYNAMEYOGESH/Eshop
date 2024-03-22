@@ -256,3 +256,39 @@ header .navbar{
   justify-content: center;
   align-items: center;
 }
+
+/* lpgin */
+.login .card{
+  padding: 12px;
+  border: 1px solid#222;
+  width: calc(100vw - 40vw);display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login {
+  display: flex;align-items: center;
+  justify-content: center;
+}
+.login .card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.login form .form-item {
+  width: calc(100%-20%);
+}
+
+.login form .form-control{
+  padding: 10px 12px;
+  font-size: 1.1rem;
+
+}
+.login form .btn{
+  font-size: 1rem;
+  background-color: #222;
+  color: #eee;
+  border: 10px solid #fff
+}
