@@ -5,7 +5,7 @@ function Products(props) {
     let {id , title,image,price,category}= props
   return (
    <div className="card">
-   <NavLink to={`product/${id}`}>
+   <NavLink to={`product/${id}`} style={{textDecoration:'none'}}>
       <div className="card-front">
         <img src={image?image:''} alt="" className='card-img' />
         <div className="title-sec">
