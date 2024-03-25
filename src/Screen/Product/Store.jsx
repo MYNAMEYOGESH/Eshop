@@ -18,7 +18,7 @@ function Store() {
   const readProducts = async() => {
     await axios.get(`${url}/products`)
     .then(res => {
-      console.log(`products =` ,res.data)
+      // console.log(`products =` ,res.data)
       setProducts(res.data)
 
       // if qury is present
