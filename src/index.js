@@ -11,12 +11,16 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import "react-toastify/dist/ReactToastify.css"
 import AuthProvider from './context/AuthContext';
+import CartContext from './Screen/Cart/CatrContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <AuthProvider>
+    <CartContext>
     <App/>
+    </CartContext>
   </AuthProvider>
   </React.StrictMode>
 );
