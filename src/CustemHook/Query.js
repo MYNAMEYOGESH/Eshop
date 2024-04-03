@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useLocation } from "react-router-dom";
 
@@ -6,4 +7,5 @@ function useQuery() {
 
     return React.useMemo(() => new URLSearchParams(search),[search])
 }
+
 export { useQuery }

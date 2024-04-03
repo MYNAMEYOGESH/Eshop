@@ -1,3 +1,4 @@
+
 import React, { createContext, useEffect, useMemo, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -15,115 +16,66 @@ function CartProvider(props) {
     }), [cart])
 
     // read data
-    useEffect(() => {
 
+    useEffect(() => {
+                
     },[cart])
 
     // add to cart
-    const addToCart = (product) => {
-     // console.log('cart', product)
-      // store the data in localstorage
+     const addToCart = (product) => {
+        // console.log('cart',product)
+        // store the data in localstorage
       let storedCart = JSON.parse(localStorage.getItem("cart")) || []
       let extItem = storedCart.find(item => item.id === product.id)
       console.log(`extItem =`, extItem)
-      if(extItem) {
-        toast.warning("Product already in cart")
-      } else {
-        let cartItem = {
-          ...product,
-          quantity: 1
+        if(extItem) {
+            toast.warning("Product already in cart")
+        } else {
+            let cartItem = {
+                ...product,
+                quantity: 1
+            }
+            storedCart.push(cartItem)
+            localStorage.setItem("cart", JSON.stringify(storedCart))
+            toast.success("Product added to Cart")
+            window.location.reload()
         }
-        storedCart.push(cartItem)
-        localStorage.setItem("cart", JSON.stringify(storedCart))
-        toast.success("Product added to cart")
-        window.location.reload()
-      }
-    }
-
+     }
 
     // remove item from cart
-    const removeCart = (id) =>{
-      // console.log(`id =`, id)
+    const removeCart = (id) => {
+        // console.log(`id =`, id)
 
-      // read cart data
-      let storedCart = JSON.parse(localStorage.getItem("cart")) || []
-      // find the index of cart
-      let cartIndex = storedCart.findIndex(item => item.id === id)
-      // console.log(`cartIndex =`, cartIndex)
+        // read cart data
+        let storedCart = JSON.parse(localStorage.getItem("cart")) || []
+        // find the index of cart
+        let cartIndex = storedCart.findIndex(item => item.id === id)
+        //  console.log(`cartIndex =`,cartIndex)
 
-      // to remove item from cart
-      storedCart.splice(cartIndex,1)
+        // to remove item from cart
+        storedCart.splice(cartIndex,1)
 
-      // store after delete
-      localStorage.setItem("cart", JSON.stringify(storedCart))
-      setCart(storedCart)
-      toast.success("Product deleted from cart")
-      window.location.reload()
+        // store after delete
+        localStorage.setItem("cart", JSON.stringify(storedCart))
+        setCart(storedCart)
+        toast.success("Product deleted from cart")
+
     }
 
     // clear cart
-    const clearCart = () => {
-      if(window.confirm(`Are you sure to clear complete Cart?`)) {
-        localStorage.removeItem("cart")
-        toast.success("Cart cleared successfully")
-        window.location.reload()
-      }
-    }
+    const clearCart = () => {}
 
     // increment cart item quantity
-    const incr = (id) => {
-      // read cart data
-      let storedCart = JSON.parse(localStorage.getItem("cart")) || []
-
-      let cartItem = storedCart.find(item => item.id === id) 
-
-      if(cartItem) {
-        let newCart = storedCart.map(item => {
-          if(item.id === id) {
-            return { ...item, quantity:item.quantity + 1}
-          } else {
-            return item
-          }
-        })
-        localStorage.setItem("cart", JSON.stringify(newCart))
-        window.location.reload()
-      }
-    }
+    const incr = (id) => {}
 
     // decrement cart item quantity
-    const decr = (id) => {
-       // read cart data
-       let storedCart = JSON.parse(localStorage.getItem("cart")) || []
+    const decr = (id) => {}
 
-       let cartItem = storedCart.find(item => item.id === id) 
-
-       console.log('cartItem =', cartItem)
- 
-       if(cartItem) {
-         let newCart = storedCart.map(item => {
-           if(item.id === id) {
-            if(item.quantity < 1) {
-              return { ...item, quantity:1}
-            } else {
-             return { ...item, quantity:item.quantity - 1}
-            }
-           } else {
-             return item
-           }
-         })
-         localStorage.setItem("cart", JSON.stringify(newCart))
-         window.location.reload()
-       }
-
-       if(cartItem.quantity <= 1){
-         removeCart(id)
-       }
-    }
   return (
-    <CartContext.Provider value={{cartData, addToCart, removeCart, clearCart, incr, decr }}>
-      {
-        props.children
-      }
+    <CartContext.Provider value={{ cartData, addToCart, removeCart, clearCart, incr, decr }} >
+        {
+            props.children
+        }
     </CartContext.Provider>
   )
 }

@@ -297,3 +297,49 @@ header .navbar{
   border: 10px solid #fff
 }
 
+/* cart table */
+.table {
+  width: 100vw;
+  table-layout: auto;
+  text-align: center;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid #222;
+  border-collapse: collapse;
+}
+
+.incr {
+  background-color: green;
+}
+
+.decr {
+  background-color: orangered;
+}
+
+.table strong {
+  font-size: 1.1rem;
+}
+
+.cart {
+  position: relative;
+}
+
+.cart .circle {
+  background-color: green;
+  color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -6px;
+  right: -10px;
+}
