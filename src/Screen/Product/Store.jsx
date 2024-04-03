@@ -11,48 +11,44 @@ function Store() {
   const [products,setProducts] = useState([])
 
   let query = useQuery()
-  console.log(`query = `,query.get('category'))
+  console.log(`query =`, query.get('category'))
 
-
-  // read all propertys
-  const readProducts = async() => {
+  // read all products
+  const readProducts = async () => {
     await axios.get(`${url}/products`)
     .then(res => {
-      // console.log(`products =` ,res.data)
-      setProducts(res.data)
-
-      // if qury is present
+      //console.log(`products =`, res.data)
+      // if query is present
       if(query.get('category')) {
         let data = res.data.filter(item => item.category === query.get('category'))
         setProducts(data)
-      }else {
+      } else {
         // if query category is not present 
         setProducts(res.data)
       }
+      
     }).catch(err => toast.error(err.message))
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     readProducts()
   },[products])
-
   return (
-   <div className="container">
-    <div className="row">
-      <div className="col">
-        <div className="product-container">
-          {
-            products?.map((item,index)=> {
-              return (
-                <Products key={index} {...item}/>
-              )
-            })
-          }
+    <div className='container'>
+      <div className="row">
+        <div className="col">
+          <div className="product-container">
+            {
+              products?.map((item,index) => {
+                return (
+                  <Products key={index} {...item} />
+                )
+              })
+            }
+          </div>
         </div>
       </div>
     </div>
-   </div>
-    
   )
 }
 

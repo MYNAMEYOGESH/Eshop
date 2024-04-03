@@ -14,27 +14,21 @@ import PrivateRouter from '../PrivateRouter/PrivateRouter'
 
 function Container() {
   return (
-   <Routes>
-          <Route element={<PrivateRouter/>} > 
-              <Route path={`/`} element={<Home/>}>
-                  <Route path={`/`} element={<Store/>} />
-                  <Route path={`/Product/:id`} element={<SingleProduct/>} />
-                  <Route path={`cart`} element={<ProductCart/>} />
-                  <Route path={`checkout`} element={<ProductCheckuot/>} />
-              </Route>
-       
-        <Route path='/about' element={<About/>} />
-        <Route path='/contact' element={<Contact/>} />
-          
-      </Route>
-    
-        
-        <Route path='/login' element={<Login/>} />
-        <Route path='/refister' element={<Register/>} />
-        <Route path='/*' element={<Pnf/>} />
-
-        
-   </Routes>
+    <Routes>
+       <Route element={<PrivateRouter/>}>
+        <Route path={`/`} element={<Home/>}>
+            <Route path={`/`} element={<Store/>} />
+            <Route path={`cart`} element={<ProductCart/>} />
+            <Route path={`checkout`} element={<ProductCheckuot/>} />
+            <Route path={'/product/:id'} element={<SingleProduct/>} />
+          </Route>
+        <Route path={`/about`} element={<About/>}/>
+        <Route path={`/contact`} element={<Contact/>}/>
+        </Route>
+        <Route path={`/login`} element={<Login/>}/>
+        <Route path={`/register`} element={<Register/>}/>
+        <Route path={`/*`} element={<Pnf/>}/>
+    </Routes>
   )
 }
 

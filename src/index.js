@@ -11,7 +11,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import "react-toastify/dist/ReactToastify.css"
 import AuthProvider from './context/AuthContext';
-import CartContext from './Screen/Cart/CatrContext';
+import CartContext from './context/CartContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

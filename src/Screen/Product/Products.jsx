@@ -1,28 +1,32 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import useCart from '../../CustemHook/Cart'
 
 function Products(props) {
-    let {id , title,image,price,category}= props
+    const { addToCart } = useCart()
+    let{id, title, image, category, description, price, rating} = props
   return (
-   <div className="card">
-   <NavLink to={`product/${id}`} style={{textDecoration:'none'}}>
+    <div className='card'>
+      <NavLink to={`/product/${id}`} style={{ textDecoration: 'none'}}>
+        
       <div className="card-front">
-        <img src={image?image:''} alt="" className='card-img' />
-        <div className="title-sec">
+        <img src={image?image: ''} alt="" className='card-img' />
         <div className="card-content">
-            <h6 className="caed-titel">{title}</h6>
-            <p className="price">&#8377; {price} </p>
-            <p className="category">{category}</p>
-        </div>
+            <div className="title-sec">
+            <h4 className="card-title"> {title}</h4>
+            <p className="price"> &#8377; {price}</p>
+            <p className="category"> { category } </p>
         </div>
       </div>
-   </NavLink>
-    <div className="card-back">
-        <button className="btn"> Add to cart 
+      </div>
+      </NavLink>
+      <div className="card-back">
+        <button onClick={() => addToCart(props)} className="btn"> Add-to cart
             <i className="bi bi-cart"></i>
         </button>
-    </div>
-   </div>
+        </div>
+      </div>
+    
   )
 }
 
